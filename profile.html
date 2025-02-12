@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Особистий кабінет - ChiksaBank</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        // Якщо користувач не увійшов, перекидаємо його назад
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <header>
+        <h1>ChiksaBank</h1>
+        <p>Ваш особистий кабінет</p>
+    </header>
+
+    <main>
+        <section class="profile">
+            <h2>Вітаємо, <span id="user-name">Клієнт</span>!</h2>
+            <p>Баланс: <strong id="balance">0 ₴</strong></p>
+            <p>Номер картки: <strong id="card-number">XXXX-XXXX-XXXX-XXXX</strong></p>
+            <button onclick="generateCard()">Згенерувати картку</button>
+        </section>
+
+        <section class="logout">
+            <button onclick="logout()">Вийти</button>
+        </section>
+    </main>
+
+    <script>
+        let userName = localStorage.getItem("userName") || "Клієнт";
+        let balance = localStorage.getItem("balance") || Math.floor(Math.random() * 10000) + " ₴";
+        let cardNumber = localStorage.getItem("cardNumber") || "XXXX-XXXX-XXXX-XXXX";
+
+        document.getElementById("user-name").innerText = userName;
+        document.getElementById("balance").innerText = balance;
+        document.getElementById("card-number").innerText = cardNumber;
+
+        function generateCard() {
+            let newCard = "4000-" + Math.floor(1000 + Math.random() * 9000) + "-" + 
+                          Math.floor(1000 + Math.random() * 9000) + "-" + 
+                          Math.floor(1000 + Math.random() * 9000);
+            document.getElementById("card-number").innerText = newCard;
+            localStorage.setItem("cardNumber", newCard);
+        }
+
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("userName");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

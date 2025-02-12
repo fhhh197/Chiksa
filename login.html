@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід - ChiksaBank</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ChiksaBank</h1>
+        <p>Увійдіть у свій акаунт</p>
+    </header>
+
+    <main>
+        <section class="login">
+            <h2>Вхід</h2>
+            <input type="text" id="username" placeholder="Логін">
+            <input type="password" id="password" placeholder="Пароль">
+            <button onclick="login()">Увійти</button>
+            <p id="error-msg" style="color: red;"></p>
+            <p>Немає акаунту? <a href="register.html">Зареєструватися</a></p>
+        </section>
+    </main>
+
+    <script>
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            // Отримуємо дані з localStorage
+            let savedUsername = localStorage.getItem("savedUsername");
+            let savedPassword = localStorage.getItem("savedPassword");
+
+            if (username === savedUsername && password === savedPassword) {
+                localStorage.setItem("isLoggedIn", "true");  
+                localStorage.setItem("userName", username);
+                window.location.href = "profile.html"; // Перехід у профіль
+            } else {
+                document.getElementById("error-msg").innerText = "❌ Невірний логін або пароль!";
+            }
+        }
+    </script>
+</body>
+</html>
