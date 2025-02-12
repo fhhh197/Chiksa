@@ -1,0 +1,99 @@
+/* Основний стиль */
+body {
+    background-color: #121212;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Хедер */
+header {
+    background: #8e44ad;
+    padding: 15px;
+    font-size: 18px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Головна сторінка */
+main {
+    margin: 30px;
+}
+
+/* Кнопка */
+.btn, button {
+    background-color: #8e44ad;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn:hover, button:hover {
+    background-color: #732d91;
+}
+
+/* Форма */
+form {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: auto;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+}
+
+/* Картка */
+.card {
+    background: linear-gradient(135deg, #8e44ad, #732d91);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 20px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+/* Футер */
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    background: #1e1e1e;
+}
